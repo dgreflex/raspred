@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <cstdlib>
 
 #include "src/Node/node.hpp"
 #include "src/Solver/StandardSolver/standard_solver.hpp"
@@ -48,7 +49,11 @@ int main(int argc, char *argv[]) {
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    
+
+    std::uint64_t start_message = 1000;
+    if (argc > 1)
+        start_message = std::atoll(argv[1]);
+
     if (rank) {
         ProportionalSplitter my_splitter = ProportionalSplitter(0.5);
         Node my_node;
