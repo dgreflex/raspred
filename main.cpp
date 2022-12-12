@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
         Node my_node;
         switch (rank) {
             case 1:
-                my_node = Node(my_splitter, 0, 0, 2, 1000);
+                my_node = Node(my_splitter, 0, 0, 2, start_message);
                 break;
             case 25:
                 my_node = Node(my_splitter, 0, 2, 0);
