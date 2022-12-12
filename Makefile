@@ -34,4 +34,4 @@ createdirs:
 	mkdir -p $(BUILD)
 
 clean:
-	rm -rf $(BUILD) main test/test_functions test/test_operations test/test_root
+	rm -rf $(BUILD) main 
