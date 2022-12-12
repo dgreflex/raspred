@@ -3,7 +3,6 @@
 #include <cstdint>
 
 #include "node.hpp"
-#include "../Splitter/AbstractSplitter/abstract_splitter.hpp"
 
 Node::Node() : 
     message_size(0),
@@ -12,14 +11,14 @@ Node::Node() :
     in_quantity(0),
     out_quantity(0) {}
 
-Node::Node(AbstractSplitter &splitter, const int core_rank, const int in_quantity, const int out_quantity) : Node() {
+Node::Node(ProportionalSplitter &splitter, const int core_rank, const int in_quantity, const int out_quantity) : Node() {
     this->core_rank = core_rank;
     this->in_quantity = in_quantity;
     this->out_quantity = out_quantity;
     this->splitter = splitter;
 }
 
-Node::Node(AbstractSplitter &splitter, const int core_rank, const int in_quantity, const int out_quantity, const std::uint64_t &message_size) :
+Node::Node(ProportionalSplitter &splitter, const int core_rank, const int in_quantity, const int out_quantity, const std::uint64_t &message_size) :
     Node(splitter, core_rank, in_quantity, out_quantity) {
     this->message_size = message_size;
 }

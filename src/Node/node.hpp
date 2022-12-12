@@ -5,7 +5,7 @@
 #include <vector>
 #include <cstdint>
 
-#include "../Splitter/AbstractSplitter/abstract_splitter.hpp"
+#include "../Splitter/ProportionalSplitter/proportional_splitter.hpp"
 
 using Times = std::vector<std::uint64_t>;
 
@@ -16,15 +16,15 @@ private:
     int core_rank;
     int in_quantity;
     int out_quantity;
-    AbstractSplitter splitter;
+    ProportionalSplitter splitter;
 
     void RSync(const int rank);
     void SSync(const int rank);
 
 public:
     explicit Node();
-    explicit Node(AbstractSplitter &splitter, const int core_rank, const int in_quantity, const int out_quantity);
-    explicit Node(AbstractSplitter &splitter, const int core_rank, const int in_quantity, const int out_quantity, const std::uint64_t &message_size);
+    explicit Node(ProportionalSplitter &splitter, const int core_rank, const int in_quantity, const int out_quantity);
+    explicit Node(ProportionalSplitter &splitter, const int core_rank, const int in_quantity, const int out_quantity, const std::uint64_t &message_size);
     MPI_Status Run();
     void Collect() const;
 };
